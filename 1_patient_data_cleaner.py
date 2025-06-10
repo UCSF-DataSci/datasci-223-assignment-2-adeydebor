@@ -40,6 +40,7 @@ Usage:
 
 import json
 import os
+import pandas as pd
 
 def load_patient_data(filepath):
     """
@@ -73,15 +74,19 @@ def clean_patient_data(patients):
     
     for patient in patients:
         # BUG: Typo in key 'nage' instead of 'name'
-        patient['nage'] = patient['name'].title()
+        # FIX: Corrected to 'name'
+        patient['name'] = patient['name'].title()
         
         # BUG: Wrong method name (fill_na vs fillna)
-        patient['age'] = patient['age'].fill_na(0)
+        # FIX: Changed method to 'fillna'
+        patient['age'] = patient['age'].fillna(0)
         
         # BUG: Wrong method name (drop_duplcates vs drop_duplicates)
-        patient = patient.drop_duplcates()
+        # FIX: Changed method to 'drop_duplicates'
+        patient = patient.drop_duplicates()
         
         # BUG: Wrong comparison operator (= vs ==)
+        # FIX: Corrected the operator to >=
         if patient['age'] = 18:
             # BUG: Logic error - keeps patients under 18 instead of filtering them out
             cleaned_patients.append(patient)
