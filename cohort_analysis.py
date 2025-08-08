@@ -56,10 +56,10 @@ def analyze_patient_cohorts(input_file: str) -> pl.DataFrame:
 def main():
     """Main function to run the cohort analysis."""
     # Input file - adjust path based on project structure
-    input_file = os.path.join("patients_large.csv")
+    input_file = os.path.join("data", "raw", "patients_large.csv")
     
     # Alternative: use absolute path if needed
-    # input_file = "/workspaces/datasci-223-assignment-2-adeydebor/patients_large.csv"
+    # input_file = "/workspaces/datasci-223-assignment-2-adeydebor/data/raw/patients_large.csv"
     
     try:
         # Run analysis
